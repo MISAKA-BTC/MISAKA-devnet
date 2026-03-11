@@ -1,5 +1,10 @@
 # MISAKA Network Devnet
+git clone https://github.com/MISAKA-BTC/MISAKA-devnet
+cd misaka-core-rs-v9-stealth-hardening
 
+cargo build --release
+
+./target/release/misaka-node --network devnet
 ![MISAKA](https://img.shields.io/badge/network-devnet-blue)
 ![Rust](https://img.shields.io/badge/built%20with-Rust-orange)
 ![License](https://img.shields.io/badge/license-MIT-green)
