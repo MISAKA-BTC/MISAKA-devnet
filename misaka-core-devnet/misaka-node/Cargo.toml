@@ -1,0 +1,24 @@
+[package]
+name = "misaka-node"
+version = "0.1.0"
+edition = "2021"
+description = "MISAKA node startup recovery, lifecycle gating, crash/restart safety"
+
+[dependencies]
+misaka-crypto = { path = "../misaka-crypto" }
+misaka-tx = { path = "../misaka-tx" }
+misaka-store = { path = "../misaka-store" }
+misaka-mempool = { path = "../misaka-mempool" }
+misaka-block = { path = "../misaka-block" }
+misaka-relay = { path = "../misaka-relay" }
+misaka-consensus = { path = "../misaka-consensus" }
+misaka-consensus-relay = { path = "../misaka-consensus-relay" }
+misaka-wal = { path = "../misaka-wal" }
+misaka-verify = { path = "../misaka-verify" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+hex = { workspace = true }
+
+[dev-dependencies]
+misaka-crypto = { path = "../misaka-crypto" }

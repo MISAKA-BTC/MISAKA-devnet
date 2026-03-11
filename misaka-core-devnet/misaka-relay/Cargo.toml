@@ -1,0 +1,17 @@
+[package]
+name = "misaka-relay"
+version = "0.1.0"
+edition = "2021"
+description = "MISAKA P2P relay — tx/block announce-request-response, orphan buffering, peer scoring"
+
+[dependencies]
+misaka-tx = { path = "../misaka-tx" }
+misaka-store = { path = "../misaka-store" }
+misaka-mempool = { path = "../misaka-mempool" }
+misaka-block = { path = "../misaka-block" }
+misaka-crypto = { path = "../misaka-crypto" }
+thiserror = { workspace = true }
+hex = { workspace = true }
+
+[dev-dependencies]
+misaka-crypto = { path = "../misaka-crypto" }

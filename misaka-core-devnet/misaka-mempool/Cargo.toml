@@ -1,0 +1,14 @@
+[package]
+name = "misaka-mempool"
+version = "0.1.0"
+edition = "2021"
+description = "MISAKA transaction mempool — pre-validation, fee-priority ordering, deterministic block selection"
+
+[dependencies]
+misaka-crypto = { path = "../misaka-crypto" }
+misaka-tx = { path = "../misaka-tx" }
+thiserror = { workspace = true }
+hex = { workspace = true }
+
+[dev-dependencies]
+misaka-crypto = { path = "../misaka-crypto" }

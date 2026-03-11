@@ -1,0 +1,12 @@
+[package]
+name = "misaka-p2p"
+version = "0.1.0"
+edition = "2021"
+description = "MISAKA P2P with authenticated Kyber-768 + Falcon-512 handshake"
+
+[dependencies]
+misaka-crypto = { path = "../misaka-crypto" }
+rand = { workspace = true }
+hex = { workspace = true }
+zeroize = { workspace = true }
+thiserror = { workspace = true }

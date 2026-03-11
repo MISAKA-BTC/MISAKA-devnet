@@ -1,0 +1,12 @@
+[package]
+name = "misaka-tx"
+version = "0.1.0"
+edition = "2021"
+description = "MISAKA Seraphis/Jamtis transaction model — complete type definitions"
+
+[dependencies]
+misaka-crypto = { path = "../misaka-crypto" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+hex = { workspace = true }

@@ -1,0 +1,14 @@
+[package]
+name = "misaka-store"
+version = "0.1.0"
+edition = "2021"
+description = "MISAKA block/UTXO/link-tag storage with 3-tier node role separation"
+
+[dependencies]
+misaka-crypto = { path = "../misaka-crypto" }
+misaka-verify = { path = "../misaka-verify" }
+misaka-tx = { path = "../misaka-tx" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+hex = { workspace = true }
