@@ -1,0 +1,35 @@
+[package]
+name = "misaka-crypto"
+version = "0.1.0"
+edition = "2021"
+description = "MISAKA Network PQ crypto — Falcon-512, ML-KEM-768, SHAKE256-DRBG"
+
+[dependencies]
+ed25519-compact = "2"
+# PQClean wrappers (audited C implementations compiled to Rust)
+pqcrypto-falcon = "0.3"
+pqcrypto-dilithium = "0.5"
+pqcrypto-kyber = "0.8"
+pqcrypto-traits = "0.3"
+
+# NIST hash functions
+sha3 = { workspace = true }
+
+# Symmetric crypto
+aes-gcm = { workspace = true }
+
+# CSPRNG
+rand = { workspace = true }
+rand_core = { workspace = true }
+
+# Secret handling
+zeroize = { workspace = true }
+
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+hex = { workspace = true }
+thiserror = { workspace = true }
+
+[dev-dependencies]
+rand = "0.8"

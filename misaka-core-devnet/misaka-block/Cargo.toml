@@ -1,0 +1,16 @@
+[package]
+name = "misaka-block"
+version = "0.1.0"
+edition = "2021"
+description = "MISAKA block construction, validation, atomic application, and consensus hooks"
+
+[dependencies]
+misaka-crypto = { path = "../misaka-crypto" }
+misaka-tx = { path = "../misaka-tx" }
+misaka-store = { path = "../misaka-store" }
+misaka-mempool = { path = "../misaka-mempool" }
+thiserror = { workspace = true }
+hex = { workspace = true }
+
+[dev-dependencies]
+misaka-crypto = { path = "../misaka-crypto" }

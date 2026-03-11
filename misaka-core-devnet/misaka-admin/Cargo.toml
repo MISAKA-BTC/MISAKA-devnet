@@ -1,0 +1,12 @@
+[package]
+name = "misaka-admin"
+version = "0.1.0"
+edition = "2021"
+description = "MISAKA testnet admin — token distribution, no DAO"
+
+[dependencies]
+misaka-crypto = { path = "../misaka-crypto" }
+hex = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }

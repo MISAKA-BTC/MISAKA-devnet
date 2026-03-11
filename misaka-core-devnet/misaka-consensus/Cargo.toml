@@ -1,0 +1,8 @@
+[package]
+name = "misaka-consensus"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+misaka-crypto = { path = "../misaka-crypto" }
+misaka-verify = { path = "../misaka-verify" }

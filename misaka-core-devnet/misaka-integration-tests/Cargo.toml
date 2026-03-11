@@ -1,0 +1,14 @@
+[package]
+name = "misaka-integration-tests"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+misaka-crypto = { path = "../misaka-crypto" }
+misaka-verify = { path = "../misaka-verify" }
+misaka-consensus = { path = "../misaka-consensus" }
+misaka-admin = { path = "../misaka-admin" }
+misaka-p2p = { path = "../misaka-p2p" }
+misaka-wal = { path = "../misaka-wal" }
+hex = { workspace = true }

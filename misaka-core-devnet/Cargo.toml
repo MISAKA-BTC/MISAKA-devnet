@@ -1,0 +1,139 @@
+# ============================================================
+# MISAKA Network — misaka-core-rs-v9
+# Post-Quantum Privacy Blockchain (Rust Implementation)
+# ============================================================
+#
+# Crate dependency graph (→ = depends on):
+#
+#   misaka-crypto          (PQ crypto primitives: Falcon-512, ML-KEM-768, SHAKE256)
+#   misaka-verify          → crypto
+#   misaka-tx              → crypto
+#   misaka-store           → crypto, tx
+#   misaka-mempool         → crypto, tx, store
+#   misaka-consensus       → crypto, verify
+#   misaka-block           → crypto, tx, store, mempool
+#   misaka-relay           → crypto, tx, store, mempool, block
+#   misaka-wal             (standalone WAL)
+#   misaka-consensus-relay → crypto, tx, store, mempool, block, relay, consensus, verify, wal
+#   misaka-p2p             → crypto
+#   misaka-admin           → crypto, tx, store
+#   misaka-node            → crypto, tx, store, mempool, block, relay, consensus, consensus-relay, verify, wal
+#   misaka-testnet         → crypto, tx, store, mempool, block, relay, consensus, consensus-relay, verify, wal, node
+#   misaka-cli             → crypto, tx, store, mempool, block, node, testnet
+#   misaka-ffi             → crypto, tx
+#   misaka-integration-tests → (all)
+#
+# ============================================================
+
+[workspace]
+members = [
+    # ── Core crypto ──
+    "misaka-crypto",
+
+    # ── Transaction model ──
+    "misaka-tx",
+
+    # ── Verification ──
+    "misaka-verify",
+
+    # ── Storage ──
+    "misaka-store",
+
+    # ── Mempool ──
+    "misaka-mempool",
+
+    # ── Block pipeline ──
+    "misaka-block",
+
+    # ── Consensus ──
+    "misaka-consensus",
+
+    # ── P2P relay ──
+    "misaka-relay",
+    "misaka-p2p",
+
+    # ── Consensus relay (proposal/vote/commit) ──
+    "misaka-consensus-relay",
+
+    # ── Write-Ahead Log ──
+    "misaka-wal",
+
+    # ── Node runtime (recovery, RPC, wallet, genesis) ──
+    "misaka-node",
+
+    # ── Admin / token distribution ──
+    "misaka-admin",
+
+    # ── FFI bridge ──
+    "misaka-ffi",
+
+    # ── Multi-node testnet orchestration ──
+    "misaka-testnet",
+
+    # ── CLI binary ──
+    "misaka-cli",
+
+    # ── Integration tests ──
+    "misaka-integration-tests",
+]
+resolver = "2"
+
+# ════════════════════════════════════════════
+# Shared workspace dependencies
+# ════════════════════════════════════════════
+#
+# These are referenced from member crates as:
+#   sha3 = { workspace = true }
+#
+# PQ crypto crates (pqcrypto-falcon, pqcrypto-kyber, etc.)
+# are NOT workspace deps because they're only used by misaka-crypto.
+# ════════════════════════════════════════════
+
+[workspace.dependencies]
+# Hash functions (SHAKE256 XOF — single primitive for entire chain)
+sha3 = "0.10"
+
+# Symmetric encryption (AES-256-GCM for session/memo encryption)
+aes-gcm = "0.10"
+
+# CSPRNG
+rand = "0.8"
+rand_core = "0.6"
+
+# Secret material handling
+zeroize = { version = "1.7", features = ["derive"] }
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# Hex encoding
+hex = "0.4"
+
+# Error handling
+thiserror = "1"
+
+# ════════════════════════════════════════════
+# Workspace-level metadata
+# ════════════════════════════════════════════
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/MISAKANetwork/misaka-core-rs"
+
+# ════════════════════════════════════════════
+# Build profiles
+# ════════════════════════════════════════════
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+strip = "symbols"
+
+[profile.dev]
+opt-level = 1  # Faster PQ crypto in dev builds
+
+[profile.test]
+opt-level = 1  # Faster PQ crypto in test builds

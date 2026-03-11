@@ -1,0 +1,21 @@
+[package]
+name = "misaka-cli"
+version = "0.1.0"
+edition = "2021"
+description = "MISAKA CLI — unified command-line interface for node, wallet, chain inspection, and devnet"
+
+[[bin]]
+name = "misaka"
+path = "src/main.rs"
+
+[dependencies]
+misaka-crypto = { path = "../misaka-crypto" }
+misaka-tx = { path = "../misaka-tx" }
+misaka-store = { path = "../misaka-store" }
+misaka-mempool = { path = "../misaka-mempool" }
+misaka-block = { path = "../misaka-block" }
+misaka-node = { path = "../misaka-node" }
+misaka-testnet = { path = "../misaka-testnet" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+hex = { workspace = true }

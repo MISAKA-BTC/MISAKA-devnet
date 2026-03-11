@@ -1,0 +1,13 @@
+[package]
+name = "misaka-ffi"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "staticlib"]
+
+[dependencies]
+misaka-crypto = { path = "../misaka-crypto" }
+misaka-verify = { path = "../misaka-verify" }
+misaka-consensus = { path = "../misaka-consensus" }
+misaka-p2p = { path = "../misaka-p2p" }
