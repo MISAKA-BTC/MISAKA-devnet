@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+
+  misaka-node:
+    build: .
+    container_name: misaka-devnet-node
+
+    ports:
+      - "8333:8333"
+
+    volumes:
+      - ./data:/data
+
+    command:
+      [
+        "./target/release/misaka-node",
+        "--network",
+        "devnet",
+        "--seed-node",
+        "seed.misaka.network:8333",
+        "--data-dir",
+        "/data"
+      ]
